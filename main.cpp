@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include <gmpxx.h>
+#include <chrono>
 
 using namespace std;
 
@@ -11,8 +12,9 @@ int main()
     while (true) {
         cout << "\nCheck a Mersenne number M_p = 2^p - 1 for primality." << endl;
         cout << "p = ";
-        if (cin >> p) {
+        if ((cin >> p)&&(p>1)) {
 
+            auto start_time = chrono::high_resolution_clock::now();
             mpz_t k;
             mpz_t Mp;
             int count = 1;
@@ -22,7 +24,7 @@ int main()
             mpz_ui_pow_ui(Mp, 2, p);
             mpz_sub_ui(Mp, Mp, 1);
 
-            cout << "u(0) = 4" << endl;
+            cout << "\nu(0) = 4\n" << endl;
 
             do {
 
@@ -46,13 +48,34 @@ int main()
             else {
                 cout << "\nM_" << p << " is composite." << endl;
             }
-
             mpz_clear(k);
             mpz_clear(Mp);
+
+            auto end_time = chrono::high_resolution_clock::now();
+            auto time = end_time-start_time;
+
+            cout << "\nVerified in ";
+            if (chrono::duration_cast<chrono::hours>(time).count()>0) {
+                cout << chrono::duration_cast<chrono::minutes>(time).count() << " minutes.\n";
+            }
+            else if (chrono::duration_cast<chrono::minutes>(time).count()>0) {
+                cout << chrono::duration_cast<chrono::seconds>(time).count() << " seconds.\n";
+            }
+            else if (chrono::duration_cast<chrono::seconds>(time).count()>0) {
+                cout << chrono::duration_cast<chrono::milliseconds>(time).count() << " milliseconds.\n";
+            }
+            else if (chrono::duration_cast<chrono::milliseconds>(time).count()>0) {
+                cout << chrono::duration_cast<chrono::milliseconds>(time).count() << " milliseconds.\n" << endl;
+            }
+            else if (chrono::duration_cast<chrono::microseconds>(time).count()>0) {
+                cout << chrono::duration_cast<chrono::microseconds>(time).count() << " microseconds.\n" << endl;
+            }
+
         }
         else {
-            cout << "\np must be a natural number." << endl;
+            cout << "\np must be a natural number greater than 1." << endl;
         }
     }
+
     return 0;
 }
