@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main() {
+int flt() {
 
     const int LIMIT = 100000;
 
