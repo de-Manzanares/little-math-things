@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int main()
+void Lucas_Lehmer_Test()
 {
     unsigned long int p;
 
@@ -77,5 +77,4 @@ int main()
         }
     }
 
-    return 0;
 }
