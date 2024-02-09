@@ -3,6 +3,8 @@
 #include <gmpxx.h>
 #include <chrono>
 
+//TODO clean up
+
 using namespace std;
 
 void lucas_lehmer_test()

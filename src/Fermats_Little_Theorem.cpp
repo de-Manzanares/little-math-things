@@ -3,13 +3,16 @@
 #include <fstream>
 #include <gmpxx.h>
 
+//TODO clean up
+
 using namespace std;
 
-void fermats_little_theorem() {
+void fermats_little_theorem()
+{
 
     const int LIMIT = 100000;
 
-    unsigned long int count=1;
+    unsigned long int count = 1;
     mpz_t p, eq, a, pm1;
     mpz_init_set_ui(p, 2);
     mpz_init(eq);
