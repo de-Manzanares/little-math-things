@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void Lucas_Lehmer_Test()
+void lucas_lehmer_test()
 {
     unsigned long int p;
 
@@ -24,19 +24,20 @@ void Lucas_Lehmer_Test()
             mpz_ui_pow_ui(Mp, 2, p);
             mpz_sub_ui(Mp, Mp, 1);
 
-            cout << "\nu(0) = 4\n" << endl;
+            // cout << "\nu(0) = 4\n" << endl;
 
             do {
 
-                cout << "u(" << count << ") = (" << k << " ^ 2 - 2) % M_" << p;
-                cout << " = ";
+                // cout << "u(" << count << ") = (" << k << " ^ 2 - 2) % M_"
+                // << p; //
+                // cout << " = ";
 
                 mpz_mul(k, k, k);
                 mpz_sub_ui(k, k, 2);
                 mpz_mod(k, k, Mp);
 
-                gmp_printf("%Zd", k);
-                cout << endl << "\n";
+                // gmp_printf("%Zd", k);
+                // cout << endl << "\n";
 
                 count++;
             }
