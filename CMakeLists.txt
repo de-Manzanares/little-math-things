@@ -4,12 +4,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(NAME little-math-things)
 
-set(SUBDIR
-        src/apps/Fermats-Little-Theorem
-        src/apps/Lucas-Lehmer-Test)
-
 project(${NAME})
 
-add_subdirectory(${SUBDIR})
+add_subdirectory(src/apps/cli)
+
+include_directories(src/lib)
 
 add_executable(${NAME} src/main.cpp)
+target_link_libraries(${NAME} cli-app_lib)

@@ -1,7 +1,8 @@
-#include "apps/apps.h"
+#include "apps.h"
 
 int main()
 {
+    Administrative_Assistant::cli();
     return 0;
 }
 
