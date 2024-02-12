@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void fermats_little_theorem()
+int main()
 {
 
     const int LIMIT = 100000;
@@ -40,4 +40,5 @@ void fermats_little_theorem()
     mpz_clear(a);
     mpz_clear(pm1);
 
+    return 0;
 }

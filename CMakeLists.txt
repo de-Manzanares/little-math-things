@@ -1,12 +1,15 @@
-cmake_minimum_required(VERSION 3.27)
-project(little-math-things)
+cmake_minimum_required(VERSION 3.7)
 
 set(CMAKE_CXX_STANDARD 17)
 
-include_directories(src)
+set(NAME little-math-things)
 
-add_executable(little-math-things main.cpp
-        src/Fermats_Little_Theorem.cpp
-        src/Lucas_Lehmer_Test.cpp)
+set(SUBDIR
+        src/apps/Fermats-Little-Theorem
+        src/apps/Lucas-Lehmer-Test)
 
-target_link_libraries(little-math-things gmp gmpxx)
+project(${NAME})
+
+add_subdirectory(${SUBDIR})
+
+add_executable(${NAME} src/main.cpp)

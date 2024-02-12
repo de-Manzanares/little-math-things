@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void lucas_lehmer_test()
+int main()
 {
     unsigned long int p;
 
@@ -79,5 +79,5 @@ void lucas_lehmer_test()
             cout << "\np must be a natural number greater than 1." << endl;
         }
     }
-
+    return 0;
 }
